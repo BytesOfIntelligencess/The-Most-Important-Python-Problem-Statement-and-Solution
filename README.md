@@ -30,9 +30,28 @@ sorted_names = [name for name, _ in decorated_names]
 print(sorted_names)
 ```
 
-Output:
+**Output:**
 ```
 ['Bob', 'Eve', 'Alice', 'David', 'Frank', 'Grace', 'Charlie', 'Helen']
+```
+
+
+``` python 
+
+def schwartzian(arr, f):
+    return [t[0] for t in sorted([(v, f(v)) for v in arr], key=lambda t: t[1])]
+
+
+TEST = ["Rosetta", "Code", "is", "a", "programming", "chrestomathy", "site"]
+
+print(TEST, "=>", schwartzian(TEST, len))
+
+
+```
+**Output:**
+
+```
+['Rosetta', 'Code', 'is', 'a', 'programming', 'chrestomathy', 'site'] => ['a', 'is', 'Code', 'site', 'Rosetta', 'programming', 'chrestomathy']
 ```
 
 In this example, the DSU idiom was used to sort the list of names based on their lengths while maintaining the original order for names with the same length.
